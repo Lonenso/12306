@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="po.StationEntity" table="station" schema="12306">
+        <id name="id" column="id"/>
+        <property name="trainId" column="train_id"/>
+        <property name="stationName" column="station_name"/>
+        <property name="timeofArrival" column="timeofArrival"/>
+        <property name="timeofStart" column="timeofStart"/>
+        <property name="date" column="_date"/>
+        <property name="cost" column="_cost"/>
+    </class>
+</hibernate-mapping>

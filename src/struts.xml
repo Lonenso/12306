@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+        "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="login" class="action.loginAction">
+            <result name="normal">/SimpleQuery.jsp</result>
+            <result name="manage">/Manager/manage.jsp</result>
+            <result name="fail">/User/login.jsp</result>
+        </action>
+        <action name="regist" class="action.registAction">
+            <result name="success">/User/login.jsp</result>
+            <result name="fail">/User/regist.jsp</result>
+        </action>
+        <action name="newuserm" class="action.newuserMAction">
+            <result name="success">/Manager/UserManage.jsp</result>
+            <result name="fail">/Manager/NewUser.jsp</result>
+        </action>
+        <action name="deleteuserm" class="action.deleteuserMAction">
+            <result name="success">/Manager/UserManage.jsp</result>
+            <result name="fail">/Manager/UserManage.jsp</result>
+        </action>
+        <action name="newtrainm" class="action.newtrainMAction">
+            <result name="success">/Manager/TrainsManage.jsp</result>
+            <result name="fail">/Manager/NewTrains.jsp</result>
+        </action>
+        <action name="deletetrainm" class="action.deletetrainMAction">
+            <result name="success">/Manager/TrainsManage.jsp</result>
+            <result name="fail">/Manager/TrainsManage.jsp</result>
+        </action>
+        <action name="newstationm" class="action.newstationMAction">
+            <result name="success">/Manager/StationManage.jsp</result>
+            <result name="fail">/Manager/NewStation.jsp</result>
+        </action>
+        <action name="deletestationm" class="action.deletestationMAction">
+            <result name="success">/Manager/StationManage.jsp</result>
+            <result name="fail">/Manager/StationManage.jsp</result>
+        </action>
+        <action name="normalfind" class="action.findAction">
+            <result name="success">/Query.jsp</result>
+            <result name="fail">/fail.jsp</result>
+        </action>
+        <action name="advancedfind" class="action.advancedAction">
+            <result name="success">/advancedQuery.jsp</result>
+            <result name="fail">/fail.jsp</result>
+        </action>
+
+    </package>
+</struts>
