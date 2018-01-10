@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>新建车次</title>
 
     <script type="text/javascript">
         function validate_train_id(field) {
@@ -93,13 +93,13 @@
     </script>
 
 
-    <style type="text/css">
-        .login_form{
-            height:600px;
-            margin-top: 25px;
-        }
+    <%--&lt;%&ndash;<style type="text/css">&ndash;%&gt;--%>
+        <%--&lt;%&ndash;.login_form{&ndash;%&gt;--%>
+            <%--&lt;%&ndash;height:600px;&ndash;%&gt;--%>
+            <%--&lt;%&ndash;margin-top: 25px;&ndash;%&gt;--%>
+        <%--&lt;%&ndash;}&ndash;%&gt;--%>
 
-    </style>
+    <%--</style>--%>
     <link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
 </head>
 <body>
@@ -133,7 +133,7 @@
                         <br />
                         <label>一等座：</label>
                         <input class="itxt" type="text" placeholder="请输入一等座数量" autocomplete="off"
-                               tabindex="1" name="first_class" id="first_class" onblur="validate_first_class(first_class)"/><span class ="error" id="first_class"></span>
+                               tabindex="1" name="first_class" onblur="validate_first_class(first_class)"/><span class ="error" id="first_class"></span>
                         <br />
                         <br />
                         <label>二等座：</label>
@@ -162,9 +162,10 @@
                         <br />
                         <br />
 
-
-
                         <input type="submit" value="新建" id="sub_btn" />
+                        <br/>
+                        <br/>
+                        <input type="button" class="button2" value="返回上一页" onclick="window.location.href='../Manager/TrainsManage.jsp'">
 
                     </form>
                 </div>

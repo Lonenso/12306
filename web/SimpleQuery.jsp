@@ -20,7 +20,7 @@
     <img class="logo_img" alt="" src="../static/images" >
 </div>
 
-<div class="login_banner">
+<div class="login_banner1">
 
     <div id="l_content">
         <span class="login_word">用户查询</span>

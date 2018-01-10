@@ -6,6 +6,20 @@ public class advancedRecord{
     private String trans; //中转站
     private double totalCost;
     private String totalTime;
+    private String stopTime;
+
+
+    public String getStopTime() {
+        return stopTime;
+    }
+
+    public void setStopTime(long diff) {
+        long nh = 60 * 60 * 1000;
+        long nm = 1000 * 60;
+        long hour = diff / nh;
+        long min = diff % nh / nm;
+        this.stopTime = String.format("%02d:%02d",hour,min);
+    }
 
     public double getTotalCost() {
         return totalCost;

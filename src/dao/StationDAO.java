@@ -35,6 +35,11 @@ public class StationDAO extends HibernateDaoSupport{
                 "from StationEntity where trainId='"+train_id+"' and stationName='"+station_name+"'");
         return c;
     }
+    public List<StationEntity> findStationOnlyByName(String station_name){
+        List<StationEntity> c=(List<StationEntity>)getHibernateTemplate().find(
+                "from StationEntity where stationName='"+station_name+"'");
+        return c;
+    }
     public List<StationEntity> findStationByTrainId(String train_id, double cost){
         List<StationEntity> c=(List<StationEntity>)getHibernateTemplate().find(
                 "from StationEntity where trainId='"+train_id+"' and cost > "+cost);

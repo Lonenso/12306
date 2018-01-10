@@ -57,10 +57,10 @@
 </head>
 <body>
 <div id="login_header">
-    <img class="logo_img" alt="" src="../static/images" >
+    <%--<img class="logo_img" alt="" src="../static/images/1.jpg" >--%>
 </div>
 
-<div class="login_banner">
+<div class="login_banner1">
 
     <div id="l_content">
         <span class="login_word">欢迎登录</span>
@@ -103,3 +103,4 @@
 </div>
 </body>
 </html>
+<%--TODO:登录失败检测--%>

@@ -13,6 +13,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.sql.Date;
+import java.util.Iterator;
 import java.util.List;
 
 public class findAction extends ActionSupport{
@@ -89,13 +90,28 @@ public class findAction extends ActionSupport{
 
     public String execute(){
         ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
-        this.setDate();
+        StationDAO sdao = (StationDAO)ac.getBean("stationDAO");
         TrainDAO tdao = (TrainDAO)ac.getBean("trainDAO");
-        List<TrainEntity> list = tdao.findTrainByDate(date);
+        this.setDate();
+        List<StationEntity> d = sdao.findStationOnlyByName(src);
+        List<TrainEntity> e = new ArrayList<>();
+        List<TrainEntity> list = new ArrayList<>();
+        for(StationEntity b:d){
+            Date currDate = new Date(date.getTime()-b.getDate()*dayCountofMills);
+            e = tdao.findTrainByDate(currDate);
+            if(e.size()!=0) {
+                Iterator<TrainEntity> it = e.iterator();
+                while(it.hasNext()){
+                    TrainEntity x = it.next();
+                    if (x.getTrainId().equals(b.getTrainId())) {
+                        list.add(x);
+                    }
+                }
+            }
+        }
         if(list.size()==0){
             return "fail"; //没有当天的车
         }
-        StationDAO sdao = (StationDAO)ac.getBean("stationDAO");
 
         //遍历当天有的车次
         for(int j=0;j<list.size();j++){
@@ -143,3 +159,5 @@ public class findAction extends ActionSupport{
         return "fail";
     }
 }
+//2018.1.9 13:26 更改逻辑
+//2018.1.9 13:55 改用迭代器循环删除不满足条件的元素

@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>管理员管理页面</title>
 
     <link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
 </head>
@@ -19,7 +19,7 @@
     <img class="logo_img" alt="" src="../static/images" >
 </div>
 
-<div class="login_banner">
+<div class="login_banner1">
 
     <div id="l_content">
         <span class="login_word">管理</span>
@@ -44,6 +44,9 @@
                         <br />
                         <br />
                         <input type="button" class="button3" value="用户管理" onclick="window.location.href='../Manager/UserManage.jsp'" />
+                        <br/>
+                        <br/>
+                        <input type="button" class="button2" value="返回上一页" onclick="window.location.href='../User/login.jsp'">
                     </form>
                 </div>
             </div>

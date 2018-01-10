@@ -10,7 +10,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>新建用户</title>
 
     <script type="text/javascript">
         function validate_username(field) {
@@ -49,13 +49,13 @@
         }
     </script>
 
-    <style type="text/css">
-        .login_form{
-            height:420px;
-            margin-top: 25px;
-        }
+    <%--<style type="text/css">--%>
+        <%--.login_form{--%>
+            <%--height:420px;--%>
+            <%--margin-top: 25px;--%>
+        <%--}--%>
 
-    </style>
+    <%--</style>--%>
     <link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
 </head>
 <body>
@@ -63,7 +63,7 @@
     <img class="logo_img" alt="" src="static/img/logo.jpg" >
 </div>
 
-<div class="login_banner">
+<div class="login_banner1">
 
     <div id="l_content">
         <span class="login_word">新建用户</span>
@@ -98,6 +98,9 @@
 
 
                         <input type="submit" value="新建" id="sub_btn" />
+                        <br/>
+                        <br/>
+                        <input type="button" class="button2" value="返回上一页" onclick="window.location.href='../Manager/UserManage.jsp'">
 
                     </form>
                 </div>

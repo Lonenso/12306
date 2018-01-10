@@ -14,7 +14,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>站点管理页面</title>
 
     <link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
 
@@ -36,28 +36,28 @@
     <img class="logo_img" alt="" src="../static/images" >
 </div>
 
-<div class="login_banner">
+<div class="login_banner1">
 
     <div id="l_content">
-        <table>
+        <table  CELLSPACING="20">
             <tr>
-                <td>车次</td>
-                <td>站点名称</td>
-                <td>到达时间</td>
-                <td>出发时间</td>
-                <td>到达日期</td>
-                <td>花费</td>
+                <td style="color: black">车次</td>
+                <td style="color: black">站点名称</td>
+                <td style="color: black">到达时间</td>
+                <td style="color: black">出发时间</td>
+                <td style="color: black">到达日期</td>
+                <td style="color: black">花费</td>
 
 
             </tr>
             <%for(StationEntity i:station){%>
                 <tr>
-                    <td><%=i.getTrainId()%></td>
-                    <td><%=i.getStationName()%></td>
-                    <td><%=i.getTimeofArrival()%></td>
-                    <td><%=i.getTimeofStart()%></td>
-                    <td><%=i.getDate()%></td>
-                    <td><%=i.getCost()%></td>
+                    <td style="color: black"><%=i.getTrainId()%></td>
+                    <td style="color: black"><%=i.getStationName()%></td>
+                    <td style="color: black"><%=i.getTimeofArrival()%></td>
+                    <td style="color: black"><%=i.getTimeofStart()%></td>
+                    <td style="color: black"><%=i.getDate()%></td>
+                    <td style="color: black"><%=i.getCost()%></td>
                     <td><a href="deletestationm.action?key=<%=i.getId()%>">删除</a></td>
                 </tr>
             <%}%>
@@ -79,6 +79,7 @@
                         <input type="button" class="button1" value="新建站点" onclick="window.location.href='../Manager/NewStation.jsp'" />
                         <br />
                         <br />
+                        <input type="button" class="button2" value="返回上一页" onclick="window.location.href='../Manager/manage.jsp'">
                     </form>
                 </div>
 

@@ -14,7 +14,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>车次管理页面</title>
 
     <link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
 
@@ -36,30 +36,30 @@
     <img class="logo_img" alt="" src="../static/images" >
 </div>
 
-<div class="login_banner">
+<div class="login_banner1">
 
     <div id="l_content">
-        <table>
+        <table  CELLSPACING="20">
             <tr>
-                <td>车次</td>
-                <td>一等座</td>
-                <td>二等座</td>
-                <td>商务座</td>
-                <td>硬卧</td>
-                <td>软卧</td>
-                <td>何时到达</td>
+                <td style="color: black">车次</td>
+                <td style="color: black">一等座</td>
+                <td style="color: black">二等座</td>
+                <td style="color: black">商务座</td>
+                <td style="color: black">硬卧</td>
+                <td style="color: black">软卧</td>
+                <td style="color: black">何时到达</td>
 
 
             </tr>
             <%for(TrainEntity i:train){%>
                 <tr>
-                    <td><%=i.getTrainId()%></td>
-                    <td><%=i.getFirstClass()%></td>
-                    <td><%=i.getSecondClass()%></td>
-                    <td><%=i.getStateCabins()%></td>
-                    <td><%=i.getHard()%></td>
-                    <td><%=i.getSoft()%></td>
-                    <td><%=i.getDate()%></td>
+                    <td style="color: black"><%=i.getTrainId()%></td>
+                    <td style="color: black"><%=i.getFirstClass()%></td>
+                    <td style="color: black"><%=i.getSecondClass()%></td>
+                    <td style="color: black"><%=i.getStateCabins()%></td>
+                    <td style="color: black"><%=i.getHard()%></td>
+                    <td style="color: black"><%=i.getSoft()%></td>
+                    <td style="color: black"><%=i.getDate()%></td>
                     <td><a href="deletetrainm.action?key=<%=i.getId()%>">删除</a></td>
                 </tr>
             <%}%>
@@ -81,6 +81,7 @@
                         <input type="button" class="button1" value="新建车次" onclick="window.location.href='../Manager/NewTrains.jsp'" />
                         <br />
                         <br />
+                        <input type="button" class="button2" value="返回上一页" onclick="window.location.href='../Manager/manage.jsp'">
                     </form>
                 </div>
 

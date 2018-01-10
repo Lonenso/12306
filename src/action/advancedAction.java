@@ -14,12 +14,16 @@ import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class advancedAction extends ActionSupport{
     private String src;
     private String dst;
     private Date date;
+    private String year;
+    private String month;
+    private String day;
     private int count; //存在几趟直达
     private List<advancedRecord> advancedRec = new ArrayList<>();
     private int dayCountofMills = 86400000;
@@ -45,13 +49,38 @@ public class advancedAction extends ActionSupport{
         this.dst = dst;
     }
 
-    public void setDate(String date) {
+    public void setDate() {
+        String d = this.year+"-"+this.month+"-"+this.day;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         try {
-            this.date = new Date(sdf.parse(date).getTime());
+            this.date = new Date(sdf.parse(d).getTime());
         } catch (ParseException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
+
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public void setYear(String year) {
+        this.year = year;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public String getMonth() {
+        return month;
+    }
+
+    public String getYear() {
+        return year;
     }
 
     public List<advancedRecord> getAdvancedRec() {
@@ -89,7 +118,7 @@ public class advancedAction extends ActionSupport{
         ahead.setEndT(endT);
         long endTime = endT.getTime();
         long startTime = startT.getTime();
-        long diff = endTime - startTime;
+        long diff = endTime - startTime + delta * dayCountofMills;
         ahead.setTime(diff);
         ahead.setFirstClass(j.getFirstClass());
         ahead.setSecondClass(j.getSecondClass());
@@ -108,7 +137,7 @@ public class advancedAction extends ActionSupport{
         behind.setEndT(endT2);
         long endTime2 = endT2.getTime();
         long startTime2 = startT2.getTime();
-        long diff2 = endTime2 - startTime2;
+        long diff2 = endTime2 - startTime2 + delta2 * dayCountofMills;
         behind.setTime(diff2);
         behind.setFirstClass(m.getFirstClass());
         behind.setSecondClass(m.getSecondClass());
@@ -128,7 +157,27 @@ public class advancedAction extends ActionSupport{
     public String execute() {
         ApplicationContext ac = new ClassPathXmlApplicationContext("beans.xml");
         TrainDAO tdao = (TrainDAO) ac.getBean("trainDAO");
-        List<TrainEntity> trainList = tdao.findTrainByDate(date);//得到所有当天运行的车次
+        StationDAO sdao = (StationDAO) ac.getBean("stationDAO");
+        this.setDate();
+
+        List<StationEntity> d = sdao.findStationOnlyByName(src);
+        List<TrainEntity> e = new ArrayList<>();
+        List<TrainEntity> trainList = new ArrayList<>();
+        for(StationEntity b:d){
+            Date currDate = new Date(date.getTime()-b.getDate()*dayCountofMills);
+            e = tdao.findTrainByDate(currDate);
+            if(e.size()!=0) {
+                Iterator<TrainEntity> it = e.iterator();
+                while(it.hasNext()){
+                    TrainEntity x = it.next();
+                    if (x.getTrainId().equals(b.getTrainId())) {
+                        trainList.add(x);
+                    }
+                }
+            }
+        }
+
+
         List<TrainEntity> srcTrainList = new ArrayList<>();//得到当天运行的车次中起点可以为src且dst不可能为终点的车次
         List<StationEntity> srcRecord;
         List<TrainEntity> stopTrainList = new ArrayList<>();
@@ -137,7 +186,7 @@ public class advancedAction extends ActionSupport{
         }
 
         count = 0;
-        StationDAO sdao = (StationDAO) ac.getBean("stationDAO");
+
         for (TrainEntity i : trainList) {
             int x = sdao.findStationByName(i.getTrainId(), src).size();
             int y = sdao.findStationByName(i.getTrainId(), dst).size();
@@ -163,13 +212,37 @@ public class advancedAction extends ActionSupport{
                 java.util.Date stopDate1 = new java.util.Date(date.getTime() + oldDate * dayCountofMills + stopRecord1.get(0).getTimeofArrival().getTime() + timeZoneMo);
                 java.util.Date allowDate = new java.util.Date(stopDate1.getTime() + dayCountofMills);//stopDate1~allowDate间的train_id都满足条件
                 //计算获得满足条件的train_id（时间上满足）
-                List<TrainEntity> list1 = tdao.findTrainByDate(_stopDate);
+
+                List<StationEntity> f = sdao.findStationOnlyByName(stopStation);
+                List<TrainEntity> g;
+                List<TrainEntity> list1 = new ArrayList<>();
+                for(StationEntity h:f){
+                    Date currDate = new Date(_stopDate.getTime()-h.getDate()*dayCountofMills);
+                    g = tdao.findTrainByDate(currDate);
+                    if(g.size()!=0) {
+                        Iterator<TrainEntity> it = g.iterator();
+                        while(it.hasNext()){
+                            TrainEntity x = it.next();
+                            if (x.getTrainId().equals(h.getTrainId())) {
+                                list1.add(x);
+                            }
+                        }
+                    }
+                }
+
+                //当天
                 for (TrainEntity i : list1) {
                     List<StationEntity> stopRecord2 = sdao.findStationByName(i.getTrainId(), stopStation);
                     List<StationEntity> dstRecord = sdao.findStationByName(i.getTrainId(), dst);
-                    for (StationEntity e : stopRecord2) {
-                        if (e.getTimeofStart().getTime() < k.getTimeofArrival().getTime()) {
-                            stopRecord2.remove(e);
+                    Iterator<StationEntity> it = stopRecord2.iterator();
+                    while(it.hasNext()){
+                        StationEntity x = it.next();
+                        Time t1 = x.getTimeofStart();
+                        Time t2 = k.getTimeofArrival();
+                        if(t1!=null&&t2!=null){
+                            if (t1.getTime() <= t2.getTime()) {
+                                it.remove();
+                            }
                         }
                     }
                     if (stopRecord2.size() == 1 && dstRecord.size() == 1) {
@@ -181,15 +254,40 @@ public class advancedAction extends ActionSupport{
                         }
                     }
                 }
-                List<TrainEntity> list4 = tdao.findTrainByDate(getTomorrow(_stopDate));
+
+                List<StationEntity> i = sdao.findStationOnlyByName(stopStation);
+                List<TrainEntity> l;
+                List<TrainEntity> list4 = new ArrayList<>();
+                for(StationEntity n:i){
+                    Date currDate = new Date(getTomorrow(_stopDate).getTime()-n.getDate()*dayCountofMills);
+                    l = tdao.findTrainByDate(currDate);
+                    if(l.size()!=0) {
+                        Iterator<TrainEntity> it = l.iterator();
+                        while(it.hasNext()){
+                            TrainEntity x = it.next();
+                            if (x.getTrainId().equals(n.getTrainId())) {
+                                list4.add(x);
+                            }
+                        }
+                    }
+                }
+
+                //第二天
                 for (TrainEntity q : list4) {
                     List<StationEntity> stopRecord2 = sdao.findStationByName(q.getTrainId(), stopStation);
                     List<StationEntity> dstRecord = sdao.findStationByName(q.getTrainId(), dst);
-                    for (StationEntity f : stopRecord2) {
-                        if (f.getTimeofStart().getTime() > k.getTimeofArrival().getTime()) {
-                            stopRecord2.remove(f);
+                    Iterator<StationEntity> it = stopRecord2.iterator();
+                    while(it.hasNext()){
+                        StationEntity x = it.next();
+                        Time t1 = x.getTimeofStart();
+                        Time t2 = k.getTimeofArrival();
+                        if(t1!=null&&t2!=null){
+                            if (t1.getTime() >= t2.getTime()) {
+                                it.remove();
+                            }
                         }
                     }
+
                     if (stopRecord2.size() == 1 && dstRecord.size() == 1) {
                         int delta = dstRecord.get(0).getDate() - stopRecord2.get(0).getDate();
                         Time a = dstRecord.get(0).getTimeofArrival();

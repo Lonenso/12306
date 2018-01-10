@@ -75,7 +75,7 @@
     <img class="logo_img" alt="" src="static/img/logo.jpg" >
 </div>
 
-<div class="login_banner">
+<div class="login_banner1">
 
     <div id="l_content">
         <span class="login_word">欢迎注册</span>
@@ -108,9 +108,12 @@
                                tabindex="1" name="repwd" onblur="validate_password(password)"
                         /><span class="error" id="repwd"></span>
                         <br />
-                        <br />
+                        <br/>
 
                         <input type="submit" value="注册" id="sub_btn" />
+                        <br/>
+                        <br/>
+                        <input type="button" class="button2" value="返回上一页" onclick="window.location.href='../User/login.jsp'">
 
                     </form>
                 </div>

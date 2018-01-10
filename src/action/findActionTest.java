@@ -42,10 +42,10 @@ public class findActionTest {
         findAction fA = new findAction();
         fA.setYear("2018");
         fA.setMonth("1");
-        fA.setDay("25");
+        fA.setDay("11");
         fA.setDate();
-        fA.setSrc("泉州");
-        fA.setDst("北京");
+        fA.setSrc("北京");
+        fA.setDst("沈阳");
         System.out.println(fA.execute());
     }
 

@@ -14,7 +14,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>用户管理页面</title>
 
     <link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
 
@@ -36,21 +36,21 @@
     <img class="logo_img" alt="" src="../static/images" >
 </div>
 
-<div class="login_banner">
+<div class="login_banner1">
 
     <div id="l_content">
-        <table>
+        <table  CELLSPACING="30">
             <tr>
-                <td>用户名</td>
-                <td>密码</td>
-                <td>身份</td>
+                <td style="color: black">用户名</td>
+                <td style="color: black">密码</td>
+                <td style="color: black">身份</td>
 
             </tr>
             <% for(UserEntity i :usr){  %>
                 <tr>
-                    <td><%=i.getUsername()%></td>
-                    <td><%=i.getPassword()%></td>
-                    <td><%=i.getPermission()%></td>
+                    <td style="color: black"><%=i.getUsername()%></td>
+                    <td style="color: black"><%=i.getPassword()%></td>
+                    <td style="color: black"><%=i.getPermission()%></td>
                     <td><a href="deleteuserm.action?key=<%=i.getUsername()%>">删除</a></td>
                 </tr>
             <%} %>
@@ -72,6 +72,9 @@
                         <br />
                         <br />
                         <input type="button" class="button1" value="新建用户" onclick="window.location.href='../Manager/NewUser.jsp'" />
+                        <br/>
+                        <br/>
+                        <input type="button" class="button2" value="返回上一页" onclick="window.location.href='../Manager/manage.jsp'">
                     </form>
                 </div>
 

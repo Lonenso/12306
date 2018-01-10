@@ -52,9 +52,12 @@ public class advancedActionTest {
     @Test
     public void execute() throws Exception {
         advancedAction aA = new advancedAction();
-        aA.setDate("2018-1-25");
-        aA.setSrc("泉州");
-        aA.setDst("郑州");
+        aA.setYear("2018");
+        aA.setMonth("1");
+        aA.setDay("8");
+        aA.setDate();
+        aA.setSrc("郑州");
+        aA.setDst("哈尔滨");
         System.out.println(aA.execute());
     }
 

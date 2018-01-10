@@ -145,9 +145,14 @@ span.error{
 }
 /*登录页面CSS样式  */
 
-#login_header{
-	height: 82px;
-	width: 100%;
+#login_header {
+    height: 162px;
+    width: 100%;
+    background-image: url("../../static/images/2.jpg");
+    filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod='scale')";
+    -moz-background-size: 100% 100%;
+    background-size: 100% 40%;
+    background-attachment: fixed;
 }
 
 .login_banner{
@@ -156,11 +161,11 @@ span.error{
 }
 
 .login_banner1{
-	height:700px;
-	background-color: #39987c;
+	height:1200px;
+	background-color: #ffe57d;
 }
 .login_form{
-	  height:345px;
+	  height:360px;
 	  width:406px;
 	  float: right;
 	  margin-right:50px;
@@ -249,8 +254,10 @@ h1 {
 
 #l_content span {
 	font-size: 60px;
-	color: white;
+	color: black;
 }
+
+
 
 .tit h1 {
 	float: left;
@@ -326,16 +333,22 @@ h1 {
 
 /*查询显示框*/
 .t-list {
-    border: 3px solid #ffffff;
-    width: 800px;
+    border: 3px solid #666666;
+    width: 1200px;
 }
 
 .t-list table {
     /*width: 100%;*/
-    table-layout: fixed;
-    word-wrap: break-word;
-    /*background: url(../images/bg_tlisthd.png) top repeat-x;*/
-    margin-top: 0;
+    /*table-layout: fixed;*/
+    /*word-wrap: break-word;*/
+    /*!*background: url(../images/bg_tlisthd.png) top repeat-x;*!*/
+    /*margin-top: 0;*/
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
 }
 
 .t-list thead {
@@ -345,17 +358,32 @@ h1 {
 }
 
 .t-list th {
-    height: 52px;
-    /*background: url(../images/line_tlisth.png) right center no-repeat;*/
-    color: black;
-    overflow: hidden;
+    /*height: 52px;*/
+    /*!*background: url(../images/line_tlisth.png) right center no-repeat;*!*/
+    /*color: black;*/
+    /*overflow: hidden;*/
+    background-color:#c3dde0;
+	/*border-width: 1px;*/
+	padding: 15px;
+	border-style: solid;
+	border-color: #a9c6c9;
 }
 
 .t-list tr {
-    display: table-row;
-    vertical-align: inherit;
-    border-color: inherit;
+    /*display: table-row;*/
+    /*vertical-align: inherit;*/
+    /*border-color: inherit;*/
+    /*background-color:#d4e3e5;*/
 }
+
+
+.t-list td{
+	/*border-width: 1px;*/
+	padding: 15px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
 .t-list th .b1 {
     /*background: url(../images/icon_sj01.png) right center no-repeat;*/
     padding-right: 13px;
