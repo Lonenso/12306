@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  <div><a href="User/login.jsp">登陆火车售票系统</a></div>
   </body>
 </html>

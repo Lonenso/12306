@@ -11,7 +11,7 @@
 <head>
     <title>简单查询</title>
 
-    <link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
+    <link type="text/css" rel="stylesheet" href="../../static/css/query_style.css" >
     <script type="text/javascript" src="../../static/script/Station.js">
     </script>
 </head>
@@ -27,7 +27,7 @@
     </div>
 
     <div id="content">
-        <div class="login_form">
+        <div class="login_form ">
             <div class="login_box">
                 <div class="tit">
                     <h1>查询选择</h1>
@@ -59,6 +59,9 @@
                         <br/>
                         <br/>
                         <input type="button" value="深度查询" id="sub_btn1" onclick="queryForm.action='advancedfind.action';queryForm.submit();"/>
+                        <br/>
+                        <br/>
+                        <input type="button" value="返回登陆界面" id="sub_btn1" onclick="window.location.href='../User/login.jsp'"/>
                     </form>
                 </div>
 

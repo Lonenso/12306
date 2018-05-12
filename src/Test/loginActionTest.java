@@ -1,5 +1,6 @@
-package action;
+package Test;
 
+import action.loginAction;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

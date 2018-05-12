@@ -12,15 +12,17 @@
 <head>
     <title>用户查询页面</title>
 
-    <link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
+    <link type="text/css" rel="stylesheet" href="../../static/css/query_style.css" >
 </head>
 <body>
 <div id="login_header">
     <img class="logo_img" alt="" src="../static/images" >
 </div>
+<a target=main onclick ="window.location.href='../SimpleQuery.jsp'">返回继续</a>
+
 <div class="login_banner1">
     <div class="t-list" id="t-list" style="display: block;"  text-algin:center>
-        <table  CELLSPACING="15" text-algin:center>
+        <table  CELLSPACING="20" text-algin:center>
             <thead>
             <tr class="th" id="float">
                 <th width="90" colspan="1" rowspan="1">车次</th>
@@ -35,7 +37,6 @@
                 <th width="49" colspan="1" rowspan="1">软卧</th>
                 <th width="49" colspan="1" rowspan="1">硬卧</th>
                 <th width="49" colspan="1" rowspan="1">价格</th>
-                <th class="last" colspan="1" rowspan="1">到达时间</th>
                 <th class="last" colspan="1" rowspan="1">备注</th>
             </tr>
             </thead>

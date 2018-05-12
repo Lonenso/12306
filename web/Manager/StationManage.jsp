@@ -1,7 +1,7 @@
 <%@ page import="org.springframework.context.ApplicationContext" %>
 <%@ page import="org.springframework.context.support.ClassPathXmlApplicationContext" %>
 <%@ page import="dao.StationDAO" %>
-<%@ page import="po.StationEntity" %>
+<%@ page import="model.StationEntity" %>
 <%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: zrh
@@ -38,8 +38,8 @@
 
 <div class="login_banner1">
 
-    <div id="l_content">
-        <table  CELLSPACING="20">
+    <div id="l_content" class="abc">
+        <table id="manage" CELLSPACING="20">
             <tr>
                 <td style="color: black">车次</td>
                 <td style="color: black">站点名称</td>
@@ -64,7 +64,7 @@
         </table>
     </div>
 
-    <div id="content">
+    <div id="r_content">
         <div class="login_form">
             <div class="login_box">
                 <div class="tit">

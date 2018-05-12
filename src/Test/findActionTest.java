@@ -1,6 +1,8 @@
-package action;
+package Test;
 
+import action.findAction;
 import org.junit.Test;
+import service.queryService;
 
 import static org.junit.Assert.*;
 

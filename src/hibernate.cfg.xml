@@ -13,12 +13,12 @@
     <property name="show_sql">true</property>
     <!-- format_sql: 打印sql语句前,会将sql语句先格式化  -->
     <property name="format_sql">true</property>
-    <mapping class="po.UserEntity"/>
-    <mapping resource="po/UserEntity.hbm.xml"/>
-    <mapping class="po.TrainEntity"/>
-    <mapping resource="po/TrainEntity.hbm.xml"/>
-    <mapping class="po.StationEntity"/>
-    <mapping resource="po/StationEntity.hbm.xml"/>
+    <mapping class="model.UserEntity"/>
+    <mapping resource="UserEntity.hbm.xml"/>
+    <mapping class="model.TrainEntity"/>
+    <mapping resource="TrainEntity.hbm.xml"/>
+    <mapping class="model.StationEntity"/>
+    <mapping resource="StationEntity.hbm.xml"/>
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hbm2ddl.auto">update</property> -->
   </session-factory>

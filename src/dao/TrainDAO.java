@@ -4,8 +4,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
-import po.TrainEntity;
-import util.HibernateUtil;
+import model.TrainEntity;
+import model.HibernateUtil;
 
 import java.util.List;
 import java.util.Date;

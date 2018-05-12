@@ -17,30 +17,37 @@
 <head>
     <title>用户查询页面</title>
 
-    <link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
+    <link type="text/css" rel="stylesheet" href="../../static/css/query_style.css" >
 </head>
 <body>
 <div id="login_header">
     <img class="logo_img" alt="" src="../static/images" >
 </div>
+<a target=main onclick ="window.location.href='../SimpleQuery.jsp'">返回继续</a>
+
 <div class="login_banner1">
     <div class="t-list" id="t-list" style="display: block;"  text-align:center>
         <table>
             <thead>
             <tr class="th" id="float">
                 <th width="90" colspan="1" rowspan="1">车次</th>
-                <th width="90" colspan="1" rowspan="1">出发站</th>
-                <th width="90" colspan="1" rowspan="1">到达站</th>
-                <th width="90" colspan="1" rowspan="1">出发时间</th>
-                <th width="90" colspan="1" rowspan="1">到达时间</th>
-                <th width="82" colspan="1" rowspan="1">历时</th>
+                <th width="100" colspan="1" rowspan="1">"出发站"</th>
+                <th width="100" colspan="1" rowspan="1">"到达站"</th>
+                <th width="82" colspan="1" rowspan="1" id="starttime">
+                    <span class="b1" id="s_time" style="cursor: pointer;">出发时间</span>
+                </th>
+                <th width="82" colspan="1" rowspan="1" id="endtime">
+                    <span class="b2" id="r_time" style="cursor: pointer;">到达时间</span>
+                </th>
+                <th width="82" colspan="1" rowspan="1"><span class="b3" id="l_s">历时</span>
+                </th>
+
                 <th width="49" colspan="1" rowspan="1">二等座</th>
                 <th width="49" colspan="1" rowspan="1">一等座</th>
                 <th width="49" colspan="1" rowspan="1">特等座</th>
                 <th width="49" colspan="1" rowspan="1">软卧</th>
                 <th width="49" colspan="1" rowspan="1">硬卧</th>
                 <th width="49" colspan="1" rowspan="1">价格</th>
-                <th class="last" colspan="1" rowspan="1">到达日期</th>
                 <th class="last" colspan="1" rowspan="1">备注</th>
             </tr>
             </thead>

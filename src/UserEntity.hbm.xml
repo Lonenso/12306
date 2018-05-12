@@ -4,9 +4,11 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="po.UserEntity" table="user" schema="12306">
+    <class name="model.UserEntity" table="user" schema="12306">
         <id name="username" column="username"/>
         <property name="password" column="password"/>
         <property name="permission" column="permission"/>
+        <property name="phonenum" column="phonenum"/>
+        <property name="contact" column="contact"/>
     </class>
 </hibernate-mapping>

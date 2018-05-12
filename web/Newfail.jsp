@@ -1,17 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
-  User: 5498374
-  Date: 2018/1/8
-  Time: 21:44
+  User: zrh
+  Date: 2018/1/16
+  Time: 12:00
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>查询失败</title>
+    <title>新建失败</title>
 </head>
 <body>
-<p>查询失败</p>
-<a href="#" target=main onclick ="window.location.href='../SimpleQuery.jsp'">返回继续</a>
+新建失败！请重新新建
+
 </body>
 </html>

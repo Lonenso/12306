@@ -65,11 +65,11 @@
 
 <div class="login_banner1">
 
-    <div id="l_content">
-        <span class="login_word">新建用户</span>
+    <div id="l_content"  class="abc">
+        <span class="login_word" >新建用户</span>
     </div>
 
-    <div id="content">
+    <div id="r_content">
         <div class="login_form">
             <div class="login_box">
                 <div class="tit">

@@ -3,7 +3,9 @@ package action;
 import dao.TrainDAO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import po.TrainEntity;
+import model.TrainEntity;
+import service.ManagerService;
+
 import java.sql.Date;
 
 public class newtrainMAction {
@@ -14,7 +16,14 @@ public class newtrainMAction {
     private String hard;
     private String soft;
     private String _date;
+    protected ManagerService mgr;
 
+    public void setMgr(ManagerService mgr) {
+        this.mgr = mgr;
+    }
+    public ManagerService getMgr() {
+        return mgr;
+    }
     public void setTrain_id(String train_id) {
         this.train_id = train_id;
     }
@@ -59,7 +68,7 @@ public class newtrainMAction {
     }
     public String execute()throws Exception{
         ApplicationContext ac=new ClassPathXmlApplicationContext("beans.xml");
-        TrainDAO dao=(TrainDAO)ac.getBean("trainDAO");
+        mgr=(ManagerService)ac.getBean("managerService");
         if(train_id!=null&&!train_id.equals("")){
             TrainEntity newtrain=new TrainEntity();
             newtrain.setTrainId(train_id);
@@ -69,8 +78,12 @@ public class newtrainMAction {
             newtrain.setHard(Integer.parseInt(hard));
             newtrain.setSoft(Integer.parseInt(soft));
             newtrain.setDate(Date.valueOf(_date));
-            dao.save(newtrain);
-            return "success";
+            int result=mgr.newtrainM(newtrain);
+            if(result==1){
+                return "success";
+            }else{
+                return "fail";
+            }
         }else {
             return "fail";
         }

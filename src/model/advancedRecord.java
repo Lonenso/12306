@@ -1,4 +1,4 @@
-package action;
+package model;
 
 public class advancedRecord{
     private Record srcRec;

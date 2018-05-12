@@ -22,20 +22,49 @@
         </property>
         <property name="mappingLocations">
             <list>
-                <value>classpath:po/StationEntity.hbm.xml</value>
-                <value>classpath:po/TrainEntity.hbm.xml</value>
-                <value>classpath:po/UserEntity.hbm.xml</value>
+                <value>classpath:StationEntity.hbm.xml</value>
+                <value>classpath:TrainEntity.hbm.xml</value>
+                <value>classpath:UserEntity.hbm.xml</value>
             </list>
         </property>
         <property name="annotatedClasses">
             <list>
-                <value>po.StationEntity</value>
-                <value>po.TrainEntity</value>
-                <value>po.UserEntity</value>
+                <value>model.StationEntity</value>
+                <value>model.TrainEntity</value>
+                <value>model.UserEntity</value>
             </list>
         </property>
     </bean>
 
+    <bean id="newuserMAction" class="action.newuserMAction">
+        <property name="mgr" ref="managerService"/>
+    </bean>
+    <bean id="newstationMAction" class="action.newstationMAction">
+        <property name="mgr" ref="managerService"/>
+    </bean>
+    <bean id="newtrainMAction" class="action.newtrainMAction">
+        <property name="mgr" ref="managerService"/>
+    </bean>
+    <bean id="deletestationMAction" class="action.deletestationMAction">
+        <property name="mgr" ref="managerService"/>
+    </bean>
+    <bean id="deletetrainMAction" class="action.deletetrainMAction">
+        <property name="mgr" ref="managerService"/>
+    </bean>
+    <bean id="deleteuserMAction" class="action.deleteuserMAction">
+        <property name="mgr" ref="managerService"/>
+    </bean>
+    <bean id="loginAction" class="action.loginAction">
+        <property name="mgr" ref="managerService"/>
+    </bean>
+    <bean id="registAction" class="action.registAction">
+        <property name="mgr" ref="managerService"/>
+    </bean>
+    <bean id="managerService" class="service.ManagerService">
+        <property name="userdao" ref="userDAO"/>
+        <property name="stationDAO" ref="stationDAO"/>
+        <property name="trainDAO" ref="trainDAO"/>
+    </bean>
     <bean id="userDAO" class="dao.UserDAO">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
@@ -45,9 +74,19 @@
     <bean id="stationDAO" class="dao.StationDAO">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-    <bean id="normalfind" class="action.findAction">
+
+    <bean id="qsr" class="service.queryService">
+        <property name="sdao" ref="stationDAO"></property>
+        <property name="tdao" ref="trainDAO"></property>
     </bean>
-    <bean id="advanced" class="action.advancedAction"></bean>
+    <bean id="normalfind" class="action.findAction">
+        <property name="qsr" ref="qsr"></property>
+    </bean>
+    <bean id="advanced" class="action.advancedAction">
+        <property name="qsr" ref="qsr"></property>
+    </bean>
+
+
 
 
 </beans>

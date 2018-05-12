@@ -1,5 +1,6 @@
-package action;
+package Test;
 
+import action.advancedAction;
 import org.junit.Test;
 
 import static org.junit.Assert.*;

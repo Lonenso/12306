@@ -2,14 +2,22 @@ package action;
 import dao.UserDAO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import po.UserEntity;
+import model.UserEntity;
+import service.ManagerService;
 
 import java.util.List;
 
 public class loginAction {
     private String username;
     private String password;
+    protected ManagerService mgr;
 
+    public void setMgr(ManagerService mgr) {
+        this.mgr = mgr;
+    }
+    public ManagerService getMgr() {
+        return mgr;
+    }
     public void setUsername(String username) {
         this.username = username;
     }
@@ -24,21 +32,13 @@ public class loginAction {
     }
     public String execute()throws Exception{
         ApplicationContext ac=new ClassPathXmlApplicationContext("beans.xml");
-        UserDAO dao=(UserDAO)ac.getBean("userDAO");
-        if(username!=null) {
-            List<UserEntity> usr = dao.findUserByUsername(username);
-            if (usr.get(0).getPassword().equals(password)) {
-                if (usr.get(0).getPermission() == 1) {
-                    return "normal";
-                } else if (usr.get(0).getPermission() == 2) {
-                    return "manage";
-                } else {
-                    return "fail";
-                }
-            } else {
-                return "fail";
-            }
-        }else {
+        mgr=(ManagerService)ac.getBean("managerService");
+        int result=mgr.login(username,password);
+        if(result==1){
+            return "normal";
+        }else if(result==2){
+            return "manage";
+        }else{
             return "fail";
         }
     }

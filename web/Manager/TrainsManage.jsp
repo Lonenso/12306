@@ -1,7 +1,7 @@
 <%@ page import="org.springframework.context.ApplicationContext" %>
 <%@ page import="org.springframework.context.support.ClassPathXmlApplicationContext" %>
 <%@ page import="dao.TrainDAO" %>
-<%@ page import="po.TrainEntity" %>
+<%@ page import="model.TrainEntity" %>
 <%@ page import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: zrh
@@ -38,8 +38,8 @@
 
 <div class="login_banner1">
 
-    <div id="l_content">
-        <table  CELLSPACING="20">
+    <div id="l_content" class="abc">
+        <table class="manage" CELLSPACING="20">
             <tr>
                 <td style="color: black">车次</td>
                 <td style="color: black">一等座</td>
@@ -66,7 +66,7 @@
         </table>
     </div>
 
-    <div id="content">
+    <div id="r_content">
         <div class="login_form">
             <div class="login_box">
                 <div class="tit">
@@ -76,7 +76,7 @@
                     <b></b>
                     <span class="errorMsg">${ empty msg ? "请选择你要操作的内容" : msg }</span>
                 </div>
-                <div class="form">
+                <div class="form ">
                     <form action="userServlet" method="post">
                         <input type="button" class="button1" value="新建车次" onclick="window.location.href='../Manager/NewTrains.jsp'" />
                         <br />

@@ -1,4 +1,4 @@
-package po;
+package model;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -9,6 +9,8 @@ public class UserEntity {
     private String username;
     private String password;
     private Integer permission;
+    private String phonenum;
+    private String contact;
 
     @Id
     @Column(name = "username")
@@ -40,6 +42,25 @@ public class UserEntity {
         this.permission = permission;
     }
 
+    @Basic
+    @Column(name = "phonenum")
+    public String getPhonenum() {
+        return phonenum;
+    }
+
+    public void setPhonenum(String phonenum) {
+        this.phonenum = phonenum;
+    }
+
+    @Basic
+    @Column(name = "contact")
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -47,12 +68,14 @@ public class UserEntity {
         UserEntity that = (UserEntity) o;
         return Objects.equals(username, that.username) &&
                 Objects.equals(password, that.password) &&
-                Objects.equals(permission, that.permission);
+                Objects.equals(permission, that.permission)&&
+                Objects.equals(phonenum, that.phonenum)&&
+                Objects.equals(contact, that.contact);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(username, password, permission);
+        return Objects.hash(username, password, permission,phonenum,contact);
     }
 }

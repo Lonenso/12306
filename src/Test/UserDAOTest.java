@@ -1,15 +1,13 @@
-package dao;
+package Test;
 
+import dao.UserDAO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import po.UserEntity;
+import model.UserEntity;
 
 import org.junit.Test;
-import org.junit.runner.RunWith;
+
 import java.util.List;
-
-
-import static org.junit.Assert.*;
 
 public class UserDAOTest {
 

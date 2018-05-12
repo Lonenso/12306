@@ -14,6 +14,7 @@ div{
 	margin: auto;
 	margin-bottom: 10px;
 	margin-top: 10px;
+	
 }
 
 span.error{
@@ -164,20 +165,19 @@ span.error{
 	background-color: #ffe57d;
 }
 .login_form{
-	  height:360px;
+	  height:380px;
 	  width:406px;
 	  float: right;
-	  /*margin-right:50px;*/
-	  /*margin-left: 100px;*/
-	  /*margin-top: 50px;*/
+	  margin-right:50px;
+	  margin-top: 50px;
 	  background-color: #fff;
   }
 .login_form1{
 	height:600px;
 	width:406px;
 	float: right;
-	/*margin-right:50px;*/
-	margin-top: 2%;
+	margin-right:50px;
+	margin-top: 50px;
 	background-color: #fff;
 }
 
@@ -248,9 +248,8 @@ h1 {
 
 #l_content {
 	float: left;
-	margin-top: 3%;
-	margin-left: 5%;
-	width: 60%;
+	margin-top: 150px;
+	margin-left: 300px;
 }
 
 #l_content span {
@@ -339,11 +338,17 @@ h1 {
 }
 
 .t-list table {
-    width: 60%;
-    table-layout: fixed;
-    word-wrap: break-word;
-    /*background: url(../images/bg_tlisthd.png) top repeat-x;*/
-    margin-top: 0;
+    /*width: 100%;*/
+    /*table-layout: fixed;*/
+    /*word-wrap: break-word;*/
+    /*!*background: url(../images/bg_tlisthd.png) top repeat-x;*!*/
+    /*margin-top: 0;*/
+	font-family: verdana,arial,sans-serif;
+	font-size:11px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #999999;
+	border-collapse: collapse;
 }
 
 .t-list thead {
@@ -353,17 +358,32 @@ h1 {
 }
 
 .t-list th {
-    height: 52px;
-    /*background: url(../images/line_tlisth.png) right center no-repeat;*/
-    color: black;
-    overflow: hidden;
+    /*height: 52px;*/
+    /*!*background: url(../images/line_tlisth.png) right center no-repeat;*!*/
+    /*color: black;*/
+    /*overflow: hidden;*/
+    background-color:#c3dde0;
+	/*border-width: 1px;*/
+	padding: 15px;
+	border-style: solid;
+	border-color: #a9c6c9;
 }
 
 .t-list tr {
-    display: table-row;
-    vertical-align: inherit;
-    border-color: inherit;
+    /*display: table-row;*/
+    /*vertical-align: inherit;*/
+    /*border-color: inherit;*/
+    /*background-color:#d4e3e5;*/
 }
+
+
+.t-list td{
+	/*border-width: 1px;*/
+	padding: 15px;
+	border-style: solid;
+	border-color: #a9c6c9;
+}
+
 .t-list th .b1 {
     /*background: url(../images/icon_sj01.png) right center no-repeat;*/
     padding-right: 13px;
@@ -381,38 +401,3 @@ h1 {
     padding-right: 13px;
     color: black;
 }
-table {
-	width: auto;
-}
-table tbody {
-	width: 100%;
-	display:block;
-	height:500px;
-	overflow-y:scroll;
-}
-
-table thead, tbody tr {
-	display:table;
-	width:100%;
-	table-layout:fixed;
-}
-
-table thead {
-	width: calc( 100% - 1em )
-}
-table thead th{ background:#ccc;}
-
-.abc{
-	width: auto;
-	height: auto;
-}
-
-#r_content{
-	display: block;
-}
-
-#r_content .login_form{
-	/*margin-right:150px;*/
-	margin-top: 5%;
-}
-

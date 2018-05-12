@@ -4,13 +4,14 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
 
-    <class name="po.StationEntity" table="station" schema="12306">
+    <class name="model.TrainEntity" table="train" schema="12306">
         <id name="id" column="id"/>
         <property name="trainId" column="train_id"/>
-        <property name="stationName" column="station_name"/>
-        <property name="timeofArrival" column="timeofArrival"/>
-        <property name="timeofStart" column="timeofStart"/>
+        <property name="firstClass" column="first_class"/>
+        <property name="secondClass" column="second_class"/>
+        <property name="stateCabins" column="state_cabins"/>
+        <property name="hard" column="hard"/>
+        <property name="soft" column="soft"/>
         <property name="date" column="_date"/>
-        <property name="cost" column="_cost"/>
     </class>
 </hibernate-mapping>

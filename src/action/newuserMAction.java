@@ -1,15 +1,22 @@
 package action;
 
-import dao.UserDAO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import po.UserEntity;
+import model.UserEntity;
+import service.ManagerService;
 
 public class newuserMAction {
+    protected ManagerService mgr;
     private String username;
     private String password;
     private String radio;
 
+    public void setMgr(ManagerService mgr) {
+        this.mgr = mgr;
+    }
+    public ManagerService getMgr() {
+        return mgr;
+    }
     public void setUsername(String username) {
         this.username = username;
     }
@@ -30,7 +37,7 @@ public class newuserMAction {
     }
     public String execute()throws Exception{
         ApplicationContext ac=new ClassPathXmlApplicationContext("beans.xml");
-        UserDAO dao=(UserDAO)ac.getBean("userDAO");
+        mgr=(ManagerService)ac.getBean("managerService");
         if(username!=null&&!username.equals("")){
             UserEntity usr=new UserEntity();
             usr.setUsername(username);
@@ -42,8 +49,12 @@ public class newuserMAction {
             }else {
                 return "fail";
             }
-            dao.save(usr);
-            return "success";
+            int result=mgr.newuserM(usr);
+            if(result==1){
+                return "success";
+            }else{
+                return "fail";
+            }
         }else {
             return "fail";
         }

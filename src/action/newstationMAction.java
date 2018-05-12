@@ -3,7 +3,9 @@ package action;
 import dao.StationDAO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import po.StationEntity;
+import model.StationEntity;
+import service.ManagerService;
+
 import java.sql.Time;
 
 public class newstationMAction {
@@ -13,7 +15,14 @@ public class newstationMAction {
     private String timeofStart;
     private String _date;
     private String _cost;
+    protected ManagerService mgr;
 
+    public void setMgr(ManagerService mgr) {
+        this.mgr = mgr;
+    }
+    public ManagerService getMgr() {
+        return mgr;
+    }
     public void setTrain_id(String train_id) {
         this.train_id = train_id;
     }
@@ -52,7 +61,7 @@ public class newstationMAction {
     }
     public String execute()throws Exception{
         ApplicationContext ac=new ClassPathXmlApplicationContext("beans.xml");
-        StationDAO dao=(StationDAO)ac.getBean("stationDAO");
+        mgr=(ManagerService)ac.getBean("managerService");
         if(train_id!=null&&!train_id.equals("")){
             StationEntity newstation=new StationEntity();
             newstation.setTrainId(train_id);
@@ -61,8 +70,12 @@ public class newstationMAction {
             newstation.setTimeofStart(Time.valueOf(timeofStart));
             newstation.setDate(Integer.parseInt(_date));
             newstation.setCost(Double.valueOf(_cost));
-            dao.save(newstation);
-            return "success";
+            int result=mgr.newstationM(newstation);
+            if(result==1){
+                return "success";
+            }else{
+                return "fail";
+            }
         }else {
             return "fail";
         }

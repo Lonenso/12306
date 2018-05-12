@@ -3,10 +3,18 @@ package action;
 import dao.UserDAO;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import service.ManagerService;
 
 public class deleteuserMAction {
     private String key;
+    protected ManagerService mgr;
 
+    public void setMgr(ManagerService mgr) {
+        this.mgr = mgr;
+    }
+    public ManagerService getMgr() {
+        return mgr;
+    }
     public void setKey(String key) {
         this.key = key;
     }
@@ -15,12 +23,12 @@ public class deleteuserMAction {
     }
     public String execute()throws Exception{
         ApplicationContext ac=new ClassPathXmlApplicationContext("beans.xml");
-        UserDAO dao=(UserDAO)ac.getBean("userDAO");
-        if(dao.findUserByUsername(key).size()==0) {
-            return "fail";
-        }else {
-            dao.delete(key);
+        mgr=(ManagerService)ac.getBean("managerService");
+        int result=mgr.deleteuserM(key);
+        if(result==1){
             return "success";
+        }else {
+            return "fail";
         }
     }
 }
