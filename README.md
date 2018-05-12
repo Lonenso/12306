@@ -24,94 +24,94 @@ JAVAEE 期末大作业，实现类似12306的火车订票系统，要求利用ss
 
 ## 项目结构
 
-├─lib
-├─out
-├─src
-│  │  beans.xml
-│  │  hibernate.cfg.xml
-│  │  StationEntity.hbm.xml
-│  │  struts.xml
-│  │  TrainEntity.hbm.xml
-│  │  UserEntity.hbm.xml
-│  │  
-│  ├─action
-│  │      advancedAction.java
-│  │      deletestationMAction.java
-│  │      deletetrainMAction.java
-│  │      deleteuserMAction.java
-│  │      findAction.java
-│  │      loginAction.java
-│  │      newstationMAction.java
-│  │      newtrainMAction.java
-│  │      newuserMAction.java
-│  │      registAction.java
-│  │      
-│  ├─dao
-│  │      StationDAO.java
-│  │      TrainDAO.java
-│  │      UserDAO.java
-│  │      
-│  ├─model
-│  │      advancedRecord.java
-│  │      HibernateUtil.java
-│  │      Record.java
-│  │      StationEntity.java
-│  │      TrainEntity.java
-│  │      UserEntity.java
-│  │      
-│  ├─service
-│  │      ManagerService.java
-│  │      queryService.java
-│  │      
-│  └─Test
-│          advancedActionTest.java
-│          findActionTest.java
-│          loginActionTest.java
-│          StationDAOTest.java
-│          TrainDAOTest.java
-│          UserDAOTest.java
-│          
-└─web
-    │  advancedQuery.jsp
-    │  fail.jsp
-    │  index.jsp
-    │  loginfail.jsp
-    │  Newfail.jsp
-    │  Query.jsp
-    │  SimpleQuery.jsp
-    │  
-    ├─Manager
-    │      manage.jsp
-    │      NewStation.jsp
-    │      NewTrains.jsp
-    │      NewUser.jsp
-    │      StationManage.jsp
-    │      TrainsManage.jsp
-    │      UserManage.jsp
-    │      
-    ├─static
-    │  ├─css
-    │  │      query_style.css
-    │  │      style.css
+    ├─lib
+    ├─out
+    ├─src
+    │  │  beans.xml
+    │  │  hibernate.cfg.xml
+    │  │  StationEntity.hbm.xml
+    │  │  struts.xml
+    │  │  TrainEntity.hbm.xml
+    │  │  UserEntity.hbm.xml
+    │  │  
+    │  ├─action
+    │  │      advancedAction.java
+    │  │      deletestationMAction.java
+    │  │      deletetrainMAction.java
+    │  │      deleteuserMAction.java
+    │  │      findAction.java
+    │  │      loginAction.java
+    │  │      newstationMAction.java
+    │  │      newtrainMAction.java
+    │  │      newuserMAction.java
+    │  │      registAction.java
     │  │      
-    │  ├─images
-    │  │      2.jpg
-    │  │      code.bmp
-    │  │      default.jpg
-    │  │      login_background.jpg
-    │  │      logo.jpg
-    │  │      pwd-icons-new.png
+    │  ├─dao
+    │  │      StationDAO.java
+    │  │      TrainDAO.java
+    │  │      UserDAO.java
     │  │      
-    │  └─script
-    │          jquery-1.7.2.js
-    │          Station.js
+    │  ├─model
+    │  │      advancedRecord.java
+    │  │      HibernateUtil.java
+    │  │      Record.java
+    │  │      StationEntity.java
+    │  │      TrainEntity.java
+    │  │      UserEntity.java
+    │  │      
+    │  ├─service
+    │  │      ManagerService.java
+    │  │      queryService.java
+    │  │      
+    │  └─Test
+    │          advancedActionTest.java
+    │          findActionTest.java
+    │          loginActionTest.java
+    │          StationDAOTest.java
+    │          TrainDAOTest.java
+    │          UserDAOTest.java
     │          
-    ├─User
-    │      login.jsp
-    │      regist.jsp
-    │      
-    └─WEB-INF
-            web.xml
+    └─web
+        │  advancedQuery.jsp
+        │  fail.jsp
+        │  index.jsp
+        │  loginfail.jsp
+        │  Newfail.jsp
+        │  Query.jsp
+        │  SimpleQuery.jsp
+        │  
+        ├─Manager
+        │      manage.jsp
+        │      NewStation.jsp
+        │      NewTrains.jsp
+        │      NewUser.jsp
+        │      StationManage.jsp
+        │      TrainsManage.jsp
+        │      UserManage.jsp
+        │      
+        ├─static
+        │  ├─css
+        │  │      query_style.css
+        │  │      style.css
+        │  │      
+        │  ├─images
+        │  │      2.jpg
+        │  │      code.bmp
+        │  │      default.jpg
+        │  │      login_background.jpg
+        │  │      logo.jpg
+        │  │      pwd-icons-new.png
+        │  │      
+        │  └─script
+        │          jquery-1.7.2.js
+        │          Station.js
+        │          
+        ├─User
+        │      login.jsp
+        │      regist.jsp
+        │      
+        └─WEB-INF
+                web.xml
 
 
 
